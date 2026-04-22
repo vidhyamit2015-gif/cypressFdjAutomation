@@ -105,8 +105,8 @@ Base URL:
 
 Endpoints tested:
 
-* `GET /pokemon` → Pokémon list validation
-* `GET /pokemon/{id}` → Pokémon details validation
+* `GET /pokemon` → Pokemon list validation
+* `GET /pokemon/{id}` → Pokemon details validation
 
 Tested IDs:
 
