@@ -17,6 +17,10 @@ Cypress.Commands.add('login', (email, password) => {
   cy.get(selectors.auth.submit).click()
 })
 
+Cypress.Commands.add('getHeader',()=>{
+  return cy.get(selectors.contact.h1)
+}
+)
 Cypress.Commands.add('logout', () => {
   cy.get(selectors.auth.logout).click()
 })
@@ -67,24 +71,30 @@ Cypress.Commands.add('returnToContactList', () => {
 
 
 Cypress.Commands.add('getPokemon', (id) => {
-  return cy.request({
-    method: 'GET',
-    url: `${Cypress.env('apiBaseUrl')}/pokemon/${id}`
+  return cy.env(['apiBaseUrl']).then(({ apiBaseUrl }) => {
+    return cy.request({
+      method: 'GET',
+      url: `${apiBaseUrl}/pokemon/${id}`
+    })
   })
 })
 
 Cypress.Commands.add('getPokemonList', () => {
-  return cy.request({
-    method: 'GET',
-    url:`${Cypress.env('apiBaseUrl')}/pokemon`
+  return cy.env(['apiBaseUrl']).then(({ apiBaseUrl }) => {
+    return cy.request({
+      method: 'GET',
+      url: `${apiBaseUrl}/pokemon`
+    })
   })
 })
 
 Cypress.Commands.add('getPokemonInvalid', (id) => {
-  return cy.request({
-    method: 'GET',
-    url: `https://pokeapi.co/api/v2/pokemon/${id}`,
-    failOnStatusCode: false
+  return cy.env(['apiBaseUrl']).then(({ apiBaseUrl }) => {
+    return cy.request({
+      method: 'GET',
+      url: `${apiBaseUrl}/pokemon/${id}`,
+      failOnStatusCode: false
+    })
   })
 })
 

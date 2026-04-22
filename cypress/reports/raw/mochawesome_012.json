@@ -1,0 +1,129 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2026-04-22T19:10:13.073Z",
+    "end": "2026-04-22T19:10:14.288Z",
+    "duration": 1215,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "56fbfe9f-f3ef-4a95-b012-0a2ddb56a39e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\api\\pokemanDetails.cy.js",
+      "file": "cypress\\e2e\\api\\pokemanDetails.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "93bcc2cc-503e-4b9d-8d9f-e6b6c6ead5b8",
+          "title": "PokeAPI - Pokémon Details Validation",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should validate pokemon details for multiple ids",
+              "fullTitle": "PokeAPI - Pokémon Details Validation should validate pokemon details for multiple ids",
+              "timedOut": null,
+              "duration": 261,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('pokemon').then(data => {\n  data.pokemonIds.forEach(id => {\n    cy.getPokemon(id).then(response => {\n      expect(response.status).to.eq(200);\n      expect(response.body).to.be.jsonSchema(_pokemonDetails.pokemonDetailsSchema);\n      expect(response.body).to.have.property('id', id);\n    });\n  });\n});",
+              "err": {
+                "message": "CypressError: `Cypress.env()` does not work when `allowCypressEnv` is set to `false`. Please migrate to `cy.env()` or leverage other stateful methods to manage variables. The variable being accessed was: `apiBaseUrl`\n\nhttps://on.cypress.io/cypress-env-migration",
+                "estack": "CypressError: `Cypress.env()` does not work when `allowCypressEnv` is set to `false`. Please migrate to `cy.env()` or leverage other stateful methods to manage variables. The variable being accessed was: `apiBaseUrl`\n\nhttps://on.cypress.io/cypress-env-migration\n    at cypressErr (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:78379:18)\n    at Object.errByPath (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:78437:10)\n    at $Cypress.failCypressEnvWithWarning [as env] (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:41589:81)\n    at Context.eval (webpack://cypressautomation/./cypress/support/commands.js:72:20)\n    at wrapped (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:146312:43)\nFrom Your Spec Code:\n    at eval (webpack://cypressautomation/./cypress/e2e/api/pokemanDetails.cy.js:7:11)\nat Array.forEach (<anonymous>)\n    at Context.eval (webpack://cypressautomation/./cypress/e2e/api/pokemanDetails.cy.js:6:22)\n    at getRet (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:122799:20)\n    at tryCatcher (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:1777:23)\n    at Promise.attempt.Promise.try (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:4285:29)\n    at Context.thenFn (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:122810:66)\n    at Context.then (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:123061:21)\n    at wrapped (https://thinking-tester-contact-list.herokuapp.com/__cypress/runner/cypress_runner.js:146320:19)",
+                "diff": null
+              },
+              "uuid": "97a8c49a-fc45-4fa2-a588-1460a7b3c703",
+              "parentUUID": "93bcc2cc-503e-4b9d-8d9f-e6b6c6ead5b8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return 404 for invalid pokemon id",
+              "fullTitle": "PokeAPI - Pokémon Details Validation should return 404 for invalid pokemon id",
+              "timedOut": null,
+              "duration": 125,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('pokemon').then(data => {\n  data.invalidIds.forEach(invalidId => {\n    cy.getPokemonInvalid(invalidId).then(response => {\n      expect(response.status).to.eq(404);\n    });\n  });\n});",
+              "err": {},
+              "uuid": "72a9d2a5-e909-4bdd-a89b-fdb76015f2e9",
+              "parentUUID": "93bcc2cc-503e-4b9d-8d9f-e6b6c6ead5b8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "72a9d2a5-e909-4bdd-a89b-fdb76015f2e9"
+          ],
+          "failures": [
+            "97a8c49a-fc45-4fa2-a588-1460a7b3c703"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 386,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}
