@@ -17,7 +17,7 @@ npm install
 
 ---
 
-## ▶️ Run Tests
+## Run Tests
 
 ### Run UI tests (Chrome)
 
