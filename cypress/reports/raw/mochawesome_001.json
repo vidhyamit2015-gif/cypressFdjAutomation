@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-22T14:48:16.130Z",
+    "end": "2026-04-22T14:48:24.949Z",
+    "duration": 8819,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b0966f93-b8ae-4201-936a-b65bb09af75b",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\contactEdit.cy.js",
+      "file": "cypress\\e2e\\ui\\contactEdit.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c34eeb5f-59ac-4726-8778-eab366f1fb8a",
+          "title": "contact edit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should edit address details of an existing contact",
+              "fullTitle": "contact edit should edit address details of an existing contact",
+              "timedOut": null,
+              "duration": 8742,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('contact').then(data => {\n  const unique = Date.now();\n  const user = {\n    firstName: data.user.firstName,\n    lastName: data.user.lastName,\n    email: `vidh${unique}@gmail.com`,\n    password: data.user.password\n  };\n  const contact = {\n    firstName: data.contact.firstName,\n    lastName: data.contact.lastName,\n    birthdate: data.contact.birthdate,\n    email: `vidhya${unique}@mail.com`,\n    phone: data.contact.phone,\n    street1: data.contact.street1,\n    city: data.contact.city,\n    postalCode: data.contact.postalCode,\n    stateProvince: data.contact.stateProvince,\n    country: data.contact.country\n  };\n  cy.signup(user);\n  cy.url().should('include', '/contactList');\n  cy.addContact(contact);\n  cy.url().should('include', '/contactList');\n  cy.contains(contact.email).should('be.visible');\n  cy.openContactByEmail(contact.email);\n  cy.url().should('include', '/contactDetails');\n  cy.editContactAddress(data.updatedAddress);\n  cy.contains(data.updatedAddress.street1).should('be.visible');\n  cy.contains(data.updatedAddress.city).should('be.visible');\n  cy.contains(data.updatedAddress.postalCode).should('be.visible');\n  cy.contains(data.updatedAddress.stateProvince).should('be.visible');\n  cy.contains(data.updatedAddress.country).should('be.visible');\n});",
+              "err": {},
+              "uuid": "ab797af9-bacc-4e4f-9e64-c899e9fb038a",
+              "parentUUID": "c34eeb5f-59ac-4726-8778-eab366f1fb8a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ab797af9-bacc-4e4f-9e64-c899e9fb038a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 8742,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

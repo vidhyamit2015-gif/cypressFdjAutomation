@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-04-22T14:49:09.067Z",
+    "end": "2026-04-22T14:49:19.782Z",
+    "duration": 10715,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "092f03e2-8186-4988-ac82-b905cbea9e43",
+      "title": "",
+      "fullFile": "cypress\\e2e\\ui\\signUp.cy.js",
+      "file": "cypress\\e2e\\ui\\signUp.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b564bdb3-5ff1-4ec8-b6e7-0391748c4840",
+          "title": "Authentication",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Verify if it signs up successfully",
+              "fullTitle": "Authentication Verify if it signs up successfully",
+              "timedOut": null,
+              "duration": 2271,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(data => {\n  const unique = Date.now();\n  const user = {\n    firstName: data.firstName,\n    lastName: data.lastName,\n    email: `user_${unique}@gmail.com`,\n    password: data.password\n  };\n  cy.signup(user);\n  cy.url().should('include', '/contactList');\n});",
+              "err": {},
+              "uuid": "53c0e0de-9730-4c4f-bd8b-f9a094c776f4",
+              "parentUUID": "b564bdb3-5ff1-4ec8-b6e7-0391748c4840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify if it log in successfully",
+              "fullTitle": "Authentication Verify if it log in successfully",
+              "timedOut": null,
+              "duration": 4324,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(data => {\n  const unique = Date.now();\n  const email = `user_${unique}@gmail.com`;\n  const user = {\n    firstName: data.firstName,\n    lastName: data.lastName,\n    email,\n    password: data.password\n  };\n  cy.signup(user);\n  cy.url().should('include', '/contactList');\n  cy.logout();\n  cy.login(email, data.password);\n  cy.url().should('include', '/contactList');\n});",
+              "err": {},
+              "uuid": "0360c93f-6ec4-4242-8775-ddb81ca59dcc",
+              "parentUUID": "b564bdb3-5ff1-4ec8-b6e7-0391748c4840",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Verify if it throws error for wrong credentials",
+              "fullTitle": "Authentication Verify if it throws error for wrong credentials",
+              "timedOut": null,
+              "duration": 4055,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.fixture('users').then(data => {\n  const unique = Date.now();\n  const email = `user_${unique}@gmail.com`;\n  const user = {\n    firstName: data.firstName,\n    lastName: data.lastName,\n    email,\n    password: data.password\n  };\n  cy.signup(user);\n  cy.url().should('include', '/contactList');\n  cy.logout();\n  cy.login(email, 'invalid_password');\n  cy.validateErrorMsgLogin();\n});",
+              "err": {},
+              "uuid": "9ecd2c93-0b31-4c00-afe7-ff0179e8adf5",
+              "parentUUID": "b564bdb3-5ff1-4ec8-b6e7-0391748c4840",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "53c0e0de-9730-4c4f-bd8b-f9a094c776f4",
+            "0360c93f-6ec4-4242-8775-ddb81ca59dcc",
+            "9ecd2c93-0b31-4c00-afe7-ff0179e8adf5"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 10650,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/raw",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.3.2"
+    }
+  }
+}

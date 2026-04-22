@@ -1,0 +1,25 @@
+{
+  "user": {
+    "firstName": "Vidhya",
+    "lastName": "laks",
+    "password": "qwerty123"
+  },
+  "contact": {
+    "firstName": "vid",
+    "lastName": "kri",
+    "birthdate": "1994-04-08",
+    "phone": "906545653",
+    "street1": "teg123 23123",
+    "city": "jarfalla",
+    "postalCode": "23123",
+    "stateProvince": "viksjo",
+    "country": "sweden"
+  },
+  "updatedAddress": {
+    "street1": "new street 45",
+    "city": "stockholm",
+    "postalCode": "11122",
+    "stateProvince": "uppland",
+    "country": "sweden"
+  }
+}

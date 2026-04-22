@@ -1,0 +1,40 @@
+{
+  "name": "cypressautomation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cy:open": "cypress open",
+    "test:ui": "cypress run --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "test:api": "cypress run --spec \"cypress/e2e/api/**/*.cy.js\"",
+
+    "test:ui:chrome:desktop": "cypress run --browser chrome --env viewportProfile=desktop --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "test:ui:chrome:mobile": "cypress run --browser chrome --env viewportProfile=mobile --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "test:ui:firefox:desktop": "cypress run --browser firefox --env viewportProfile=desktop --spec \"cypress/e2e/ui/**/*.cy.js\"",
+    "test:ui:firefox:mobile": "cypress run --browser firefox --env viewportProfile=mobile --spec \"cypress/e2e/ui/**/*.cy.js\"",
+
+    "report:clean": "if exist cypress\\reports rmdir /s /q cypress\\reports",
+    "report:merge": "npx mochawesome-merge cypress/reports/raw/*.json > cypress/reports/report.json",
+    "report:generate": "npx marge cypress/reports/report.json -f report -o cypress/reports",
+    "report:open": "start cypress\\reports\\report.html",
+
+    "report:ui:chrome:mobile": "npm run report:clean && npm run test:ui:chrome:mobile && npm run report:merge && npm run report:generate",
+    "report:api": "npm run report:clean && npm run test:api && npm run report:merge && npm run report:generate"
+   },
+  "author": "vidhyalakshmi krishnan",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "cypress": "^15.14.0",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-cypress": "^6.3.1",
+    "mochawesome": "^7.1.4",
+    "mochawesome-merge": "^5.1.1",
+    "mochawesome-report-generator": "^6.3.2",
+    "prettier": "^3.8.3"
+  },
+  "dependencies": {
+    "chai-json-schema": "^1.5.1"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "pokemonIds": [1, 25, 15],
+  "invalidIds": ["ab","-1"]
+}

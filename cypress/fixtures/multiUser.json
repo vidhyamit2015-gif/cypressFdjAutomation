@@ -1,0 +1,25 @@
+{
+  "password": "qwerty123",
+  "users": [
+    {
+      "firstName": "Vidhya1",
+      "lastName": "laks"
+    },
+    {
+      "firstName": "Vidhya2",
+      "lastName": "laks"
+    },
+    {
+      "firstName": "Vidhya3",
+      "lastName": "laks"
+    },
+    {
+      "firstName": "Vidhya4",
+      "lastName": "laks"
+    },
+    {
+      "firstName": "Vidhya5",
+      "lastName": "laks"
+    }
+  ]
+}
