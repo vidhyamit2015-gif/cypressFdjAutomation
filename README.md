@@ -128,11 +128,6 @@ Viewports:
 
 ## Reports
 
-### Generate Reports
-
-```bash
-npm run test:report
-```
 
 ### Open HTML Report
 
