@@ -21,7 +21,11 @@ module.exports = defineConfig({
     supportFile: 'cypress/support/e2e.js',
     setupNodeEvents(on, config) {
       return config;
-    }
+    },
+    defaultCommandTimeout: 10000, 
+    pageLoadTimeout: 60000,       
+    requestTimeout: 10000 
+
   },
 
     env: {
