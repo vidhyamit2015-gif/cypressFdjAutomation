@@ -33,3 +33,14 @@ beforeEach(() => {
     }
   })
 })
+
+Cypress.on('uncaught:exception', (err) => {
+  if (
+    err.message.includes('NetworkError when attempting to fetch resource') ||
+    err.message.includes('The operation was aborted')
+  ) {
+    return false
+  }
+
+  return true
+})
