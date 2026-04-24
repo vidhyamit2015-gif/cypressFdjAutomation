@@ -1,10 +1,9 @@
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  allowCypressEnv: false,
  retries: {
-  openMode: 1,   // minimal retry while debugging
-  runMode: 2     // more retry in CI for stability
+  openMode: 1,  
+  runMode: 2    
 },
   reporter: 'mochawesome',
   reporterOptions: {
@@ -22,9 +21,6 @@ module.exports = defineConfig({
     setupNodeEvents(on, config) {
       return config;
     },
-    defaultCommandTimeout: 10000, 
-    pageLoadTimeout: 60000,       
-    requestTimeout: 10000 
 
   },
 
